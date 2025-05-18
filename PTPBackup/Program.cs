@@ -27,9 +27,10 @@ namespace PTPBackup
                     //}
                     Console.WriteLine(files.Length);
                     string file = files[0];
-                    var parts = file.Split("\\");
-                    Console.WriteLine(parts[parts.Length - 1]);
-                    phone.DownloadFile(file, TARGET);
+                    string[] parts = file.Split("\\");
+                    string testFile = parts[parts.Length - 1]; ;
+                    Console.WriteLine(testFile);
+                    phone.DownloadFile(file, TARGET + "\\" + testFile);
                 }
             }
             catch (NotConnectedException ncex)
