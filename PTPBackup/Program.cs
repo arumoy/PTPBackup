@@ -4,8 +4,8 @@ namespace PTPBackup
 {
     internal class Program
     {
-        private static string BASE = "\\Internal shared storage\\DCIM\\Camera";
-        private static string TARGET = "C:\\Users\\449085\\Desktop\\TE";
+        private static string SRC_BASE = "\\Internal shared storage\\DCIM\\Camera";
+        private static string TARGET_BASE = "C:\\Users\\449085\\Desktop\\TE";
         //private static string TARGET = ".";
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace PTPBackup
                         phone.Connect();
                     }
                     // list files
-                    string[] files = phone.GetFiles(BASE);
+                    string[] files = phone.GetFiles(SRC_BASE);
                     //foreach (var item in files)
                     //{
                     //    Console.WriteLine(item);
@@ -30,7 +30,7 @@ namespace PTPBackup
                     string[] parts = file.Split("\\");
                     string testFile = parts[parts.Length - 1]; ;
                     Console.WriteLine(testFile);
-                    phone.DownloadFile(file, TARGET + "\\" + testFile);
+                    phone.DownloadFile(file, TARGET_BASE + "\\" + testFile);
                 }
             }
             catch (NotConnectedException ncex)
